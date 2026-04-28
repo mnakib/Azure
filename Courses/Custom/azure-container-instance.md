@@ -34,7 +34,7 @@ FROM python:3.8
 WORKDIR /app
 COPY . /app
 RUN pip install flask
-EXPOSE 8080
+EXPOSE 5000
 ENTRYPOINT ["python"]
 CMD ["app.py"]
 EOF
@@ -95,6 +95,7 @@ az container create --resource-group $RGName \
     --dns-name-label $ContainerDNSName
     --registry-username $RegistryUsername \
     --registry-password $RegistryPassword \
+    --ports 5000
     --cpu 1 --memory 1.5
 ```
 
